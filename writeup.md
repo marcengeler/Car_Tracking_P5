@@ -74,7 +74,7 @@ Another important benchmark, instead of just accuracy is also the execution time
 * Nonlinear SVC: 0.0060 seconds
 * Keras: 0.0110 seconds
 
-As we can see the linear SVC is the fastest algorithm, but has some shortcomings in accuracy.  That's why for the final implementation I sticked with the Linear SVC, because it shows a good performance and a high accuracy.
+As we can see the linear SVC is the fastest algorithm, but has some shortcomings in accuracy.  That's why for the final implementation I sticked with the Noninear SVC, because it shows a good performance and a high accuracy.
 
 ## Sliding Window on Images
 
@@ -106,8 +106,9 @@ A first run of the algorithm with the sliding windows shows a relatively good pe
 [firstRun]: ./examples/firstRun.PNG "First run of classifier"
 ![alt text][firstRun]
 
-To improve the false positive rate, the heatmap was averaged over the last 8 images. because of the continuous driving and appearance of cars, this should still return a good estimage for the car positions. Also, car positions are estimated, and any change above
-70 pixels is discarded as false positive. 
+To improve the false positive rate, the heatmap was averaged over the last 8 images. because of the continuous driving and appearance of cars, this should still return a good estimate for the car positions. Also, car positions are estimated, and any change above
+70 pixels is discarded as false positive.
+The final cropped boxes are then run through the classification algorithm again, to make sure a car image was captured in that exact area.
 
 # Summary
 
